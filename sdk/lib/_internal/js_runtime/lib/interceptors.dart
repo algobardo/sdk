@@ -345,6 +345,10 @@ class JSBool extends Interceptor implements bool {
   int get hashCode => this ? (2 * 3 * 23 * 3761) : (269 * 811);
 
   Type get runtimeType => bool;
+
+  int get customTag => Primitives.objectHashCode(this);
+
+  void setCustomTag(int tag) {}  
 }
 
 /**
@@ -368,6 +372,10 @@ class JSNull extends Interceptor implements Null {
   // class. In the mirrors library we also have to patch the `type` getter to
   // special case `null`.
   Type get runtimeType => Null;
+
+  int get customTag => Primitives.objectHashCode(this);
+
+  void setCustomTag(int tag) {}  
 
   dynamic noSuchMethod(Invocation invocation) => super.noSuchMethod(invocation);
 }
@@ -410,6 +418,10 @@ class JavaScriptObject extends Interceptor implements JSObject {
 
   // It would be impolite to stash a property on the object.
   int get hashCode => 0;
+
+  int get customTag => Primitives.objectHashCode(this);
+
+  void setCustomTag(int tag) {}  
 
   Type get runtimeType => JSObject;
 
