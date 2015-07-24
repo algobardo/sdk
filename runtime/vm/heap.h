@@ -43,6 +43,7 @@ class Heap {
     kPeers = 0,
     kHashes,
     kObjectIds,
+    kCustomTags,
     kNumWeakSelectors
   };
 
@@ -189,6 +190,13 @@ class Heap {
     return GetWeakEntry(raw_obj, kHashes);
   }
   int64_t HashCount() const;
+  
+  void SetCustomTag(RawObject* raw_obj, intptr_t hash) {
+    SetWeakEntry(raw_obj, kCustomTags, hash);
+  }
+  intptr_t GetCustomTag(RawObject* raw_obj) const {
+    return GetWeakEntry(raw_obj, kCustomTags);
+  }
 
   // Associate an id with an object (used when serializing an object).
   // A non-existant id is equal to 0.
