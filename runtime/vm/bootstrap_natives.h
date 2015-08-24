@@ -29,6 +29,7 @@ namespace dart {
   V(Object_instanceOfDouble, 2)                                                \
   V(Object_instanceOfString, 2)                                                \
   V(Object_as, 4)                                                              \
+  V(Function_getReceiver, 1)                                                   \
   V(Function_apply, 2)                                                         \
   V(FunctionImpl_equals, 2)                                                    \
   V(FunctionImpl_hashCode, 1)                                                  \
